@@ -1,0 +1,7 @@
+{
+  "name": "hotelBk",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
