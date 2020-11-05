@@ -35,7 +35,7 @@ export class AddProductService {
     return this.items;
   }
 
-  getItem(id: string): Observable<Product> {
+  getProduct(id: string): Observable<Product> {
     return this.collectionName.doc<Product>(id).valueChanges().pipe(
         take(1),
         map(item => {
@@ -45,7 +45,7 @@ export class AddProductService {
     );
   }
 
-  addItem(item: Product): Promise<DocumentReference> {
+  addproduct(item: Product): Promise<DocumentReference> {
     return this.collectionName.add(item);
   //  this.cartItemCount.next(this.cartItemCount.value + 1)
   }

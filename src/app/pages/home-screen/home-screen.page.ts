@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../model/product';
 import { AddProductService } from '../../services/add-product.service';
 
@@ -12,19 +12,23 @@ import { AddProductService } from '../../services/add-product.service';
   styleUrls: ['./home-screen.page.scss'],
 })
 export class HomeScreenPage implements OnInit {
-  products:Product ={
+   products:Product ={
 
     name:'',
     description:'',
     price:0,
     imgUrl:'',
    
-  };
+   };
   id:any;
   
-constructor(private productService: AddProductService,
-    private activateRoute:ActivatedRoute,
-    private Router: Route) {}
+constructor(
+private addProductService: AddProductService,
+private activateRoute:ActivatedRoute,
+private router: Router
+
+
+) {}
 
   ngOnInit() {
 
@@ -32,11 +36,11 @@ constructor(private productService: AddProductService,
 
 this.id =this.activateRoute.snapshot.paramMap.get('id');
 if(this.id){
-  this.productService.getItem(this.id).subscribe(res=>{
+  this.addProductService.getProduct(this.id).subscribe(res=>{
     this.products=res;
   })
 }
 
-   }
+    }
 
 }

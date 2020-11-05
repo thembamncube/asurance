@@ -66,7 +66,7 @@ constructor( private fb: FormBuilder,
 //   this.imgUrl='assets/Placeholder.jpg' ;
 //    this.selectedfile=null; 
 // }
-  //}
+  // }
 
   onFileSelected(event) {
     const file: File = event.target.files[0];
@@ -87,7 +87,7 @@ constructor( private fb: FormBuilder,
 
 create_Product(){
   if(this.itemForm.valid){
-    this.itemService.addItem(this.itemForm.value).then(() => {
+    this.itemService.addproduct(this.itemForm.value).then(() => {
       this.router.navigateByUrl('/');
     })
   }
